@@ -340,9 +340,7 @@ function App() {
     getCoords();
   }, []);
 
-  const appid = [""]; // Buraya Open Weather Map'ten alacağınız api key'ini girmeniz gerekiyor.
-
-  const urlFirst = `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity},tr&appid=${appid[0]}`
+  const urlFirst = `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity},tr&appid=76408e74d198f03f5d26f16eacb33d1f`
 
   const getCoords = () => {
     axios.get(urlFirst).then((response) => {
@@ -351,7 +349,7 @@ function App() {
   };
   
   const getWeather = (data) => {
-    const urlSecond = `https://api.openweathermap.org/data/2.5/onecall?lat=${data?.coord.lat}&lon=${data?.coord.lon}&units=metric&exclude=hourly,current,minutely,alerts&appid=${appid[0]}`;
+    const urlSecond = `https://api.openweathermap.org/data/2.5/onecall?lat=${data?.coord.lat}&lon=${data?.coord.lon}&units=metric&exclude=hourly,current,minutely,alerts&appid=76408e74d198f03f5d26f16eacb33d1f`;
     axios.get(urlSecond).then((response) => {
       setWeather(response.data)
     });
